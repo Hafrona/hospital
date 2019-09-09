@@ -8,19 +8,29 @@
         <div class="aside">
           <ul>
             <li>
-              <router-link to="about"><span></span>统计分析</router-link>
+              <router-link to="about">
+                <span></span>统计分析
+              </router-link>
             </li>
             <li>
-              <span></span>基础医疗统计
+              <router-link to="about">
+                <span></span>基础医疗统计
+              </router-link>
             </li>
             <li>
-              <span></span>公共卫生统计
+              <router-link to="about">
+                <span></span>公共卫生统计
+              </router-link>
             </li>
             <li>
-              <span></span>妇幼保健统计
+              <router-link to="about">
+                <span></span>妇幼保健统计
+              </router-link>
             </li>
             <li>
-              <span></span>财经费用统计
+              <router-link to="wel">
+                <span></span>财经费用统计
+              </router-link>
             </li>
           </ul>
         </div>
@@ -100,27 +110,25 @@
             </div>
           </div>
         </el-header>
-        <el-main>Main</el-main>
+        <el-main>
+          <router-view></router-view>
+        </el-main>
       </el-container>
     </el-container>
   </div>
 </template>
-
 <script>
 export default {
   name: "home"
 };
 </script>
-<style lang="less">
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-a{
-  text-decoration: none;
-  outline: none;
-  color:#fff;
+
+<style lang="less" scoped>
+.home {
+  height: 100%;
+  .el-container{
+    height:100%;
+  }
 }
 @theme: #404072;
 .el-header {
@@ -160,7 +168,7 @@ a{
     }
   }
   .header-right {
-    flex: 3;
+    flex: 4;
     display: flex;
     .todeyParson {
       flex: 1;
@@ -218,7 +226,8 @@ a{
   }
 }
 .el-aside {
-  background-color: #d3dce6;
+  height:100%;
+  background-color: #404072;
   color: #333;
   text-align: center;
   h1 {
@@ -257,18 +266,10 @@ a{
     }
   }
 }
-
 .el-main {
   background-color: #e9eef3;
   color: #333;
-  text-align: center;
-  line-height: 160px;
-}
-.el-container:nth-child(6) .el-aside {
-  line-height: 260px;
-}
-body > .el-container {
-  margin-bottom: 40px;
+  padding: 0;
 }
 li {
   list-style: none;

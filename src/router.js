@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
+import welcome from './views/homePage/wel.vue'
 
 Vue.use(Router)
 
@@ -8,8 +9,20 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home
+      redirect: { name: 'home' }
+    },
+    {
+      path:"/home",
+      name:"home",
+      component:Home,
+      // redirect: {path:"/home/wel"},
+      children:[
+        {
+          path:"wel",
+          name:"welcome",
+          component:welcome
+        }
+      ]
     },
     {
       path: '/about',
