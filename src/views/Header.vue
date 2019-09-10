@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <!-- 顶部菜单 -->
-    <el-header style="height:9%">
+    <el-header style="height:90px">
       <div class="header-left">
         <router-link :to="item.to" v-for="(item,index) in headerLeftNav" :key="index">
           <div class="header-left-li">
@@ -82,7 +82,7 @@ export default {
     flex: 5;
     display: flex;
     a {
-      width: 10%;
+      width: 75px;
       margin: 0 12px;
       &:hover {
         background-color: #d8d8da;
@@ -162,7 +162,7 @@ export default {
 .el-main {
   background-color: #e9eef3;
   color: #333;
-  height: 91%;
+  // height: 91%;
   margin: 0;
   padding: 0;
 }
