@@ -8,19 +8,29 @@
         <div class="aside">
           <ul>
             <li>
-              <router-link to="about"><span></span>统计分析</router-link>
+              <router-link to="about" class="skip">
+                <span></span>统计分析
+              </router-link>
             </li>
             <li>
-              <span></span>基础医疗统计
+              <router-link to="about">
+                <span></span>基础医疗统计
+              </router-link>
             </li>
             <li>
-              <span></span>公共卫生统计
+              <router-link to="about">
+                <span></span>公共卫生统计
+              </router-link>
             </li>
             <li>
-              <span></span>妇幼保健统计
+              <router-link to="about">
+                <span></span>妇幼保健统计
+              </router-link>
             </li>
             <li>
-              <span></span>财经费用统计
+              <router-link to="about">
+                <span></span>财经费用统计
+              </router-link>
             </li>
           </ul>
         </div>
@@ -108,7 +118,18 @@
 
 <script>
 export default {
-  name: "home"
+  name: "home",
+  data(){
+    return{
+      leftNav:[
+        {navName:"统计分析",icon:"",id:"1"},
+        {navName:"基础医疗统计",icon:"",id:"2"},
+        {navName:"公共卫生统计",icon:"",id:"3"},
+        {navName:"妇幼保健统计",icon:"",id:"4"},
+        {navName:"财经费用统计",icon:"",id:"5"}
+      ]
+    }
+  }
 };
 </script>
 <style lang="less">
@@ -117,10 +138,10 @@ export default {
   padding: 0;
   box-sizing: border-box;
 }
-a{
+a {
   text-decoration: none;
   outline: none;
-  color:#fff;
+  color: #fff;
 }
 @theme: #404072;
 .el-header {
