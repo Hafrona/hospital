@@ -19,7 +19,7 @@
       </el-aside>
       <!-- 右侧头部和内容区域 -->
       <el-container width="82%">
-        <router-view></router-view>
+        <router-view :navindex='navIndex'></router-view>
       </el-container>
     </el-container>
   </div>
@@ -31,27 +31,24 @@ export default {
     return {
       navIndex: 4,
       leftNav: [
-        { navName: "统计分析", icon: "", id: "1", to: "/home/header", navtia: true },
+        { navName: "统计分析", icon: "", id: "1", to: "/home/header",},
         {
           navName: "基础医疗统计",
           icon: "",
           id: "2",
           to: "/home/header",
-          navtia: false
         },
         {
           navName: "公共卫生统计",
           icon: "",
           id: "3",
           to: "/home/header",
-          navtia: false
         },
         {
           navName: "妇幼保健统计",
           icon: "",
           id: "4",
           to: "/home/header",
-          navtia: false
         },
         {
           navName: "财经费用统计",
@@ -84,6 +81,7 @@ export default {
 @theme: #404072;
 .el-aside {
   height: 100%;
+  min-width: 230px;
   background-color: #404072;
   color: #333;
   text-align: center;

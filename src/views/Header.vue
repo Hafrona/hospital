@@ -1,10 +1,14 @@
 <template>
   <div class="header">
     <!-- 顶部菜单 -->
-    <el-header style="height:90px">
+    <el-header style="height:9%">
       <div class="header-left">
         <router-link :to="item.to" v-for="(item,index) in headerLeftNav" :key="index">
-          <div class="header-left-li">
+          <div
+            class="header-left-li"
+            @click="topnav(index)"
+            :class="index === topnavIndex?'action':''"
+          >
             <i>{{item.icon}}</i>
             <p>{{item.navText}}</p>
           </div>
@@ -41,17 +45,19 @@
 export default {
   data() {
     return {
+      topnavIndex: "",
       headerLeftNav: [
-        { navText: "诊疗记录", id: "1", icon: "", to: "" },
+        { navText: "诊疗记录", id: "1", icon: "", to: "/home/header/record" },
         {
           navText: "统计分析",
           id: "2",
           icon: "",
-          to: "/home/header/statisticAnalysis"
+          to: "/home/header/statisticAnalysis",
+          action: true
         },
-        { navText: "公告信息", id: "3", icon: "", to: "" },
-        { navText: "居民档案", id: "4", icon: "", to: "" },
-        { navText: "基本设置", id: "5", icon: "", to: "" }
+        { navText: "公告信息", id: "3", icon: "", to: "/home/header/notice" },
+        { navText: "居民档案", id: "4", icon: "", to: "/home/header/userfile" },
+        { navText: "基本设置", id: "5", icon: "", to: "/home/header/setting" }
       ],
       headerRightNav: [
         { navText: "今日候诊人数", id: "1", icon: "", navTextNum: "7000" },
@@ -59,7 +65,31 @@ export default {
         { navText: "今日预约人数", id: "3", icon: "", navTextNum: "7000" }
       ]
     };
-  }
+  },
+  // props:{
+  //   navindex:number
+  // },
+  methods: {
+    topnav(index) {
+      this.topnavIndex = index;
+    },
+    routejudeg() {
+      let index = 0;
+      this.headerLeftNav.map(v => {
+        index++;
+        if (this.$route.path === v.to) {
+          this.topnavIndex = index - 1;
+        }
+      });
+    }
+  },
+  mounted() {
+    this.routejudeg()
+    console.log(this.navindex)
+  },
+  // watch: {
+  //   $route: function() {}
+  // }
 };
 </script>
 <style lang="less" scoped>
@@ -69,10 +99,11 @@ export default {
 }
 .header {
   width: 100%;
-  height:100%;
+  // height:100%;
 }
 .el-header {
   // height: 100%;
+  min-height: 75px;
   background-color: #f0f0f3;
   text-align: center;
   display: flex;
@@ -82,11 +113,8 @@ export default {
     flex: 5;
     display: flex;
     a {
-      width: 75px;
+      width: 89px;
       margin: 0 12px;
-      &:hover {
-        background-color: #d8d8da;
-      }
       .header-left-li {
         height: 100%;
         padding: 10px 0;
@@ -98,6 +126,9 @@ export default {
           border-radius: 50%;
           margin-bottom: 4px;
         }
+        p {
+          font-size: 16px;
+        }
       }
     }
   }
@@ -108,6 +139,7 @@ export default {
       flex: 1;
       display: flex;
       justify-content: center;
+      min-width: 150px;
       .headerRight-img {
         display: flex;
         justify-content: center;
@@ -138,6 +170,7 @@ export default {
     }
   }
   .header-user {
+    font-size: 16px;
     flex: 1;
     display: flex;
     justify-content: center;
@@ -162,9 +195,12 @@ export default {
 .el-main {
   background-color: #e9eef3;
   color: #333;
-  // height: 91%;
   margin: 0;
+  height: 91%;
   padding: 0;
+}
+.action {
+  background-color: #d8d8da;
 }
 </style>
 

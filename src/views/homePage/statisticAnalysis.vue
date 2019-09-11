@@ -48,7 +48,7 @@ export default {
   }
   .statistic-content {
     width: 100%;
-    height: 94%;
+    height: 100%;
     padding: 28px 28px 0;
     .statistic-contentTop {
       width: 100%;
@@ -56,12 +56,13 @@ export default {
       display: flex;
       margin-bottom: 20px;
       .contentTop-left {
+        flex:1;
         border: 1px solid #cccccc;
         border-radius: 10px;
-        flex: 1;
         height: 100%;
         background-color: #fff;
         margin-right: 13px;
+        min-width:684px;
         p {
           border-radius: 10px 10px 0 0;
           display: block;
@@ -74,10 +75,12 @@ export default {
         }
       }
       .contentTop-right {
+         min-width:684px;
+         flex:1;
         border: 1px solid #cccccc;
         border-radius: 10px;
-        flex: 1;
         height: 100%;
+        width: 684px;
         background-color: #fff;
         p {
           color: #f4f4f4;
